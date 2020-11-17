@@ -31,6 +31,23 @@ const resolvers = {
         },
 
 
+    },
+
+    Mutation: {
+        
+        // create and add new user
+        addUser: async (parent, args) => {
+            const user = await User.create(args);
+            console.log('hit backend addUser resolver');
+            return user;
+
+        },
+
+        // log in user
+        login: async () => {
+
+
+        }
     }
 };
   

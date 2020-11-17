@@ -40,7 +40,12 @@ type Query {
 
     posts(username: String): [Post]
     post(_id: ID!): Post
-  }
+}
+
+type Mutation {
+    login(username: String!, password: String!): User
+    addUser(username: String!, email: String!, password: String!): User
+}
 `;
 
 // export the typeDefs
