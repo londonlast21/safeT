@@ -1,0 +1,26 @@
+{
+  "name": "safetapp",
+  "version": "1.0.0",
+  "description": "A trans-safe healthcare directory",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "watch": "nodemon"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server-express": "^2.19.0",
+    "bcrypt": "^4.0.1",
+    "express": "^4.17.1",
+    "faker": "^4.1.0",
+    "graphql": "^15.4.0",
+    "graphql-tag": "^2.11.0",
+    "moment": "^2.29.1",
+    "mongoose": "^5.9.9"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
