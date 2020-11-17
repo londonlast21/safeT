@@ -34,7 +34,12 @@ type Comment {
 
 
 type Query {
-    posts: [Post]
+    
+    users: [User]
+    user(username: String!): User
+
+    posts(username: String): [Post]
+    post(_id: ID!): Post
   }
 `;
 
