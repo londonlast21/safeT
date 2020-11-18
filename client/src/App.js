@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { Container } from 'semantic-ui-react';
 
+// Apollo imports
+import { ApolloProvider } from '@apollo/react-hooks';
+import ApolloClient from 'apollo-boost';
+
 // css here
 import 'semantic-ui-css/semantic.min.css';
 
@@ -15,9 +19,16 @@ import AppFooter from './components/Footer/index';
 import Home from './pages/Home';
 
 
+const client = new ApolloClient({
+  uri: 'http://localhost:3001/graphql'
+});
+
+
 class App extends Component {
   render() {
     return (
+
+      <ApolloProvider client={client}>
      
         <Container>
 
@@ -28,6 +39,8 @@ class App extends Component {
 
 
         </Container>
+        
+      </ApolloProvider>
       
     );
   }
