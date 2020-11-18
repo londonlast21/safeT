@@ -58,13 +58,13 @@ const resolvers = {
     Mutation: {
         
         // create and add new user
-    addUser: async (parent, args) => {
-            const user = await User.create(args);
-            const token = signToken(user);
-            
-            console.log('hit backend addUser resolver');
+        addUser: async (parent, args) => {
+                const user = await User.create(args);
+                const token = signToken(user);
+                
+                console.log('hit backend addUser resolver');
 
-            return { token, user };
+                return { token, user };
 
         },
 
@@ -86,6 +86,24 @@ const resolvers = {
           
             const token = signToken(user);
             return { token, user };
+        },
+
+        //create a new post
+        addPost: async (parent, args, context) => {
+            console.log('hit backend addPost resolver');
+            if (context.user) {
+              const post = await Post.create({ ...args, username: context.user.username });
+          
+              await User.findByIdAndUpdate(
+                { _id: context.user._id },
+                { $push: { posts: post._id } },
+                { new: true }
+              );
+          
+              return post;
+            }
+          
+            throw new AuthenticationError('Only users with accounts may interact');
           }
     }
 };
