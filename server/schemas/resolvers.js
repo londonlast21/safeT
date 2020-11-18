@@ -104,6 +104,22 @@ const resolvers = {
             }
           
             throw new AuthenticationError('Only users with accounts may interact');
+        },
+
+        // add a comment to a post
+        addComment: async (parent, { postId, commentBody }, context) => {
+            console.log('hit backen addComment resolver');
+            if (context.user) {
+              const updatedPost = await Post.findOneAndUpdate(
+                { _id: postId },
+                { $push: { comments: { commentBody, username: context.user.username } } },
+                { new: true, runValidators: true }
+              );
+          
+              return updatedPost;
+            }
+          
+            throw new AuthenticationError('You need to be logged in!');
           }
     }
 };
