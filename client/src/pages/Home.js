@@ -3,7 +3,17 @@ import PostList from '../components/PostList';
 
 import { Grid } from 'semantic-ui-react';
 
-const Home = ({}) => {
+import { useQuery } from '@apollo/react-hooks';
+import { QUERY_POSTS } from '../utils/queries';
+
+const Home = () => {
+    console.log('hit beginning of query posts in home.js');
+
+    // make query request to database here
+    const { data = {}} = useQuery(QUERY_POSTS);
+    const posts = data;
+    console.log(posts);
+    
 
 
 
