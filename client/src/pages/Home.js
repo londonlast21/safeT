@@ -10,8 +10,8 @@ const Home = () => {
     console.log('hit beginning of query posts in home.js');
 
     // make query request to database here
-    const { data = {}} = useQuery(QUERY_POSTS);
-    const posts = data;
+    const { loading, data } = useQuery(QUERY_POSTS);
+    const posts = data?.posts || [];
     console.log(posts);
     
 
