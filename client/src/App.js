@@ -1,30 +1,34 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Container } from 'semantic-ui-react';
 
-// css
-import "bootstrap/dist/css/bootstrap.min.css";
-import 'semantic-ui-css/min.css';
+// css here
+import 'semantic-ui-css/semantic.min.css';
 
-import addPost from "./components/addPost";
-import EditPost from "./components/editPost";
-import PostsList from "./components/postsList";
-import Navbar from "./components/navbar";
+// import navbar here
+
+
+// import Components
+import AppHeader from './components/Header/index';
+import AppFooter from './components/Footer/index';
+
+// import Pages
+import Home from './pages/Home';
 
 
 class App extends Component {
   render() {
     return (
-      <Router>
-        <div className="container">
-          <h2>SafeT App</h2>
+     
+        <Container>
 
-          <Route path="/" exact component={PostsList} />
-          <Route path="/edit/:id" component={EditPost} />
-          <Route path="/create" component={CreatePost} />
+          
+          <AppHeader/>
+          <Home/>
+          <AppFooter/>
 
 
-        </div>
-      </Router>
+        </Container>
+      
     );
   }
 }
