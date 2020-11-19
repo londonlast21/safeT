@@ -6,7 +6,7 @@ import { Grid } from 'semantic-ui-react';
 import { useQuery } from '@apollo/react-hooks';
 import { QUERY_POSTS } from '../utils/queries';
 
-const Home = ({}) => {
+const Home = () => {
     
     console.log('hit beginning of query posts in home.js');
 
