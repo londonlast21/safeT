@@ -12,12 +12,12 @@ if (!posts) {
     return (
         <Card fluid>
               <Card.Content>
-                <Card.Header>{name}</Card.Header>
+                <Card.Header>{posts.name}</Card.Header>
                 <Card.Meta>{moment(createdAt).fromNow(true)}</Card.Meta>
                 <Card.Description>
                     <ul>
-                        <li>{type}</li>
-                        <li>{location}</li>
+                        <li>{posts.type}</li>
+                        <li>{posts.location}</li>
                         
                     
                     </ul>
