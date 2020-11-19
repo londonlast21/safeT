@@ -4,11 +4,11 @@
   "description": "A trans-safe healthcare directory",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "server.js",
     "watch": "nodemon"
   },
   "keywords": [],
-  "author": "",
+  "author": "Jack Cady",
   "license": "ISC",
   "dependencies": {
     "apollo-server-express": "^2.19.0",
