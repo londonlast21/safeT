@@ -39,9 +39,9 @@ const resolvers = {
         },
         // get all posts arrange by username
         posts: async (parent, { username }) => {
-            const params = username ? { username } : {};
-            console.log('hit backend getPosts resolver');
-            return post.find(params).sort({ createdAt: -1 });
+          const params = username ? { username } : {};
+          console.log('hit backend getPosts resolver');
+          return post.find().sort({ createdAt: -1 });
             
         },
         // get a single post by post ID
