@@ -1,5 +1,5 @@
 import React from 'react';
-import PostList from '../components/PostList';
+import PostCard from '../components/PostList';
 
 import { Grid } from 'semantic-ui-react';
 
@@ -27,10 +27,12 @@ const Home = () => {
             </Grid.Row>
 
             <Grid.Row>
-            <div>
-                <p>Posts list here</p>
-            </div>
-             
+            {posts &&
+              posts.map((post) => (
+                <Grid.Column key={post.id} style={{ marginBottom: 20 }}>
+                  <PostCard post={post} />
+                </Grid.Column>
+              ))}
 
             </Grid.Row>
         </Grid>

@@ -3,10 +3,10 @@ import { Button, Card } from 'semantic-ui-react';
 import moment from 'moment';
 
 
-const PostCard = ({ posts: { name, type, location, createdAt, id, comments}}) => {
-// if (!posts.length) {
-//     return <h3>No Added Providers</h3>
-// }
+const PostCard = ({ posts, name, type, location, createdAt,  comments}) => {
+if (!posts) {
+    return <h3>No Added Providers</h3>
+}
 
     //if there are posts, generate card 
     return (
