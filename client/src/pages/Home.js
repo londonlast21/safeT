@@ -9,10 +9,11 @@ import { QUERY_POSTS } from '../utils/queries';
 const Home = () => {
     
     console.log('hit beginning of query posts in home.js');
+    
 
     // make query request to database here
     const { loading, data } = useQuery(QUERY_POSTS);
-    console.log()
+    console.log(data);
     const posts = data?.posts || [];
     console.log(posts);
     

@@ -16,12 +16,15 @@
     "express": "^4.17.1",
     "faker": "^4.1.0",
     "graphql": "^15.4.0",
+    "graphql-codegen": "^0.4.0",
     "graphql-tag": "^2.11.0",
+    "init": "^0.1.2",
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.29.1",
     "mongoose": "^5.10.15"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^1.19.2",
     "nodemon": "^2.0.6"
   }
 }
