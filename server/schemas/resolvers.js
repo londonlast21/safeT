@@ -1,5 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Post } = require('../models');
+const { post } = require('../models/Comment');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -39,11 +40,13 @@ const resolvers = {
         },
         // get all posts arrange by username
         posts: async (parent, { username }) => {
-          const params = username ? { username } : {};
-          console.log('hit backend getPosts resolver');
-          return post.find().sort({ createdAt: -1 });
-            
-        },
+                     const params = username ? { username } : {};
+                     console.log('hit backend getPosts resolver');
+                  const postRes = await Post.find().sort({ createdAt: -1 });
+         console.log('POST:', postRes)
+         return postRes
+         },
+         
         // get a single post by post ID
         post: async (parent, { _id }) => {
             console.log('hit backend getPost resolver');

@@ -12,7 +12,7 @@ const Home = () => {
     
 
     // make query request to database here
-    const { data } = useQuery(QUERY_POSTS );
+    const { data, loading } = useQuery(QUERY_POSTS );
     console.log(data);
     const posts = data?.posts || [];
     console.log(posts);
