@@ -19,7 +19,7 @@ type Post {
     createdAt: String
     username: String
     comments: [Comment]
-    commentCount: Int
+   
 
     
 }

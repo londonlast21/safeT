@@ -9,8 +9,7 @@ export const QUERY_POSTS = gql`
       location
       createdAt
       username
-      reactionCount
-      reactions {
+      comments {
         _id
         createdAt
         username
