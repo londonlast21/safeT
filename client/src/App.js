@@ -5,6 +5,8 @@ import { Container } from 'semantic-ui-react';
 import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 // css here
 import 'semantic-ui-css/semantic.min.css';
 
@@ -17,6 +19,12 @@ import AppFooter from './components/Footer/index';
 
 // import Pages
 import Home from './pages/Home';
+import Login from './pages/Login';
+import NoMatch from './pages/NoMatch';
+import SinglePost from './pages/SinglePost';
+import Profile from './pages/Profile';
+import Signup from './pages/Signup';
+
 
 
 const client = new ApolloClient({
@@ -30,17 +38,33 @@ class App extends Component {
     return (
 
       <ApolloProvider client={client}>
-     
-        <Container>
+        <Router>
 
-          
-          <AppHeader/>
-          <Home/>
+        <AppHeader/>
+          <Container>
+
+
+            
+            <Switch>
+
+                <Route exact path='/' component={Home}/>
+                <Route exact path='/login' component={Login}/>
+                <Route exact path='/signup' component={Signup}/>
+                <Route exact path='/profile' component={Profile}/>
+                <Route exact path="/post/:id" component={SinglePost}/>
+
+                <Route component={NoMatch} />
+            
+            </Switch>
+            
+           
+
+
+
+          </Container>
           <AppFooter/>
 
-
-        </Container>
-        
+        </Router>
       </ApolloProvider>
       
     );
