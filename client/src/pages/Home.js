@@ -6,7 +6,11 @@ import { Grid } from 'semantic-ui-react';
 import { useQuery } from '@apollo/react-hooks';
 import { QUERY_POSTS } from '../utils/queries';
 
+import Auth from '../utils/auth';
+
 const Home = () => {
+
+    const loggedIn = Auth.loggedIn();
     
     console.log('hit beginning of query posts in home.js');
     
@@ -23,8 +27,14 @@ const Home = () => {
     return (
         <Grid columns={3}>
             <Grid.Row className="page-title">
-                <h1>Homepage</h1>
+                <h1>SafeT Directory</h1>
             </Grid.Row>
+
+            {/* {loggedIn && (
+            <Grid.Column>
+                // post form goes here
+            </Grid.Column>
+            )} */}
 
             <Grid.Row>
             {posts &&

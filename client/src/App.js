@@ -11,7 +11,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css';
 
 // import navbar here
-
+import Navbar from './components/navbar';
 
 // import Components
 import AppHeader from './components/Header/index';
@@ -40,8 +40,10 @@ class App extends Component {
       <ApolloProvider client={client}>
         <Router>
 
-        <AppHeader/>
+        
           <Container>
+
+          <Navbar />
 
 
             
@@ -50,7 +52,7 @@ class App extends Component {
                 <Route exact path='/' component={Home}/>
                 <Route exact path='/login' component={Login}/>
                 <Route exact path='/signup' component={Signup}/>
-                <Route exact path='/profile' component={Profile}/>
+                {/* <Route exact path='/profile' component={Profile}/> */}
                 <Route exact path="/post/:id" component={SinglePost}/>
 
                 <Route component={NoMatch} />

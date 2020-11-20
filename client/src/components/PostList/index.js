@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Card } from 'semantic-ui-react';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 
 const PostCard = ({ posts, name, type, location, createdAt,  comments}) => {
@@ -12,7 +13,7 @@ if (!posts) {
     return (
         <Card fluid>
               <Card.Content>
-                <Card.Header>{posts.name}</Card.Header>
+                <Card.Header as={Link} to={`/posts/${posts.id}`}>{posts.name}</Card.Header>
                 <Card.Meta>{moment(createdAt).fromNow(true)}</Card.Meta>
                 <Card.Description>
                     <ul>
