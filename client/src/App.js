@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Container } from 'semantic-ui-react';
 
 // Apollo imports
@@ -31,8 +31,7 @@ const client = new ApolloClient({
 });
 
 
-class App extends Component {
-  render() {
+function App () {
     return (
 
       <ApolloProvider client={client}>
@@ -67,7 +66,7 @@ class App extends Component {
       </ApolloProvider>
       
     );
-  }
 }
+
 
 export default App;

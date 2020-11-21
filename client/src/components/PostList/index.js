@@ -13,7 +13,7 @@ if (!posts) {
     return (
         <Card fluid>
               <Card.Content>
-                <Card.Header as={Link} to={`/posts/${posts._id}`}>{posts.name}</Card.Header>
+                <Card.Header as={Link} to={`/post/${posts._id}`}>{posts.name}</Card.Header>
                 <Card.Meta>{moment(createdAt).fromNow(true)}</Card.Meta>
                 <Card.Description>
                     <ul>
