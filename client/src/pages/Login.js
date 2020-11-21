@@ -31,8 +31,8 @@ const Login = (props) => {
     <Form onSubmit={handleFormSubmit}>
         <h1 className="signup-title">Login</h1>
                   <Form.Input
-                  label="Username"
-                  placeholder="Username.."
+                  label="Email"
+                  placeholder="Email.."
                   name="username"
                   type="text"
                   value={formState.username}

@@ -1,24 +1,72 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'semantic-ui-react';
+import { useMutation } from '@apollo/react-hooks';
+
+import Auth from '../utils/auth';
+import { ADD_USER } from '../utils/mutations';
+
 
 const Signup = () => {
     const [formState, setFormState] = useState({ username: '', email: '', password: '' });
+    const [addUser, { error }] = useMutation(ADD_USER);
 
-    // update state based on form input changes
-    const handleChange = (event) => {
-      const { name, value } = event.target;
+    console.log('hit1');
+    
   
+
+    const handleChange = event => {
+        const { name, value } = event.target;
+
+        console.log('hit2');
+    
+        setFormState({
+          ...formState,
+          [name]: value
+        });
+      };
+    
+      // submit form
+      const handleFormSubmit = async event => {
+        event.preventDefault();
+        console.log(formState);
+
+
+        console.log('hit front add user');    
+
+      try {
+          console.log(formState);
+
+
+            // correct before this line
+          const { data } = await addUser({
+              variables: { ...formState }
+
+
+              
+              
+          });
+          
+          //this is storing as an object with the right data
+          console.log(data);
+
+          Auth.login(data.addUser.token);
+
+
+      } catch (e) {
+          // correct here
+          console.log(formState);
+          
+          console.error(e);
+      } 
+
       setFormState({
-        ...formState,
-        [name]: value,
+          username:'',
+          email:'',
+          password:''
       });
     };
-  
-    // submit form
-    const handleFormSubmit = async (event) => {
-      event.preventDefault();
-    };
     
+
     return (
         <div className="form-container">
             <Form onSubmit={handleFormSubmit}>
