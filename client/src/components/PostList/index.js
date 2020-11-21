@@ -4,7 +4,7 @@ import moment from 'moment';
 import { Link } from 'react-router-dom';
 
 
-const PostCard = ({ posts, name, type, location, createdAt,  comments}) => {
+const PostCard = ({ posts, name, type, location, createdAt, _id, comments}) => {
 if (!posts) {
     return <h3>No Added Providers</h3>
 }
@@ -13,7 +13,7 @@ if (!posts) {
     return (
         <Card fluid>
               <Card.Content>
-                <Card.Header as={Link} to={`/posts/${posts.id}`}>{posts.name}</Card.Header>
+                <Card.Header as={Link} to={`/posts/${posts._id}`}>{posts.name}</Card.Header>
                 <Card.Meta>{moment(createdAt).fromNow(true)}</Card.Meta>
                 <Card.Description>
                     <ul>
