@@ -21,7 +21,6 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import NoMatch from './pages/NoMatch';
 import SinglePost from './pages/SinglePost';
-import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 
 
@@ -51,7 +50,6 @@ class App extends Component {
                 <Route exact path='/' component={Home}/>
                 <Route exact path='/login' component={Login}/>
                 <Route exact path='/signup' component={Signup}/>
-                {/* <Route exact path='/profile' component={Profile}/> */}
                 <Route exact path="/post/:id" component={SinglePost}/>
 
                 <Route component={NoMatch} />

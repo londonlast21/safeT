@@ -4,7 +4,7 @@ import moment from 'moment';
 import { Link } from 'react-router-dom';
 
 
-const PostCard = ({ posts, name, type, location, createdAt, _id, comments}) => {
+const PostCard = ({ posts, createdAt, comments}) => {
 if (!posts) {
     return <h3>No Added Providers</h3>
 }
