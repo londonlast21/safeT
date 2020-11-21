@@ -60,10 +60,12 @@ function App () {
 
 
           </Container>
-          <AppFooter/>
+          
 
         </Router>
+        
       </ApolloProvider>
+      
       
     );
 }

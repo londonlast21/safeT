@@ -4,6 +4,7 @@ import moment from 'moment';
 
 import { useQuery } from '@apollo/react-hooks';
 import { QUERY_SINGLE_POST } from '../utils/queries';
+import CommentList from '../components/CommentList';
 
 import { Card, Grid, Form, Button } from 'semantic-ui-react';
 
@@ -39,6 +40,7 @@ const SinglePost = props => {
                         </Card.Content>
                         <hr/>
                         </Card>
+                        <CommentList comments ={post.comments} />
 
                     </Grid.Column>
                 </Grid.Row>
