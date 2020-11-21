@@ -39,7 +39,7 @@ const Home = () => {
             <Grid.Row>
             {posts &&
               posts.map((posts) => (
-                <Grid.Column key={posts.id} style={{ marginBottom: 20 }}>
+                <Grid.Column key={posts._id} style={{ marginBottom: 20 }}>
                   <PostCard posts={posts} />
                 </Grid.Column>
               ))}

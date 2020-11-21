@@ -14,7 +14,6 @@ import 'semantic-ui-css/semantic.min.css';
 import Navbar from './components/navbar';
 
 // import Components
-import AppHeader from './components/Header/index';
 import AppFooter from './components/Footer/index';
 
 // import Pages
