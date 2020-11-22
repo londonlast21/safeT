@@ -38,7 +38,7 @@ const Home = () => {
             </Grid.Column>
             )}
 
-            <Grid.Row>
+            
             {posts &&
               posts.map((posts) => (
                 <Grid.Column key={posts._id} style={{ marginBottom: 20 }}>
@@ -46,7 +46,7 @@ const Home = () => {
                 </Grid.Column>
               ))}
 
-            </Grid.Row>
+            
         </Grid>
     );
 }
