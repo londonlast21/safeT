@@ -59,3 +59,21 @@ export const QUERY_USER = gql`
   }
 `;
 
+export const QUERY_SELF = gql`
+{
+  me {
+    _id
+    username
+    email
+    posts {
+      _id
+      name
+      type
+      location
+
+    }
+  }
+
+
+
+`;

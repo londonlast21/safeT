@@ -1,5 +1,6 @@
 import React from 'react';
 import PostCard from '../components/PostList';
+import PostForm from '../components/PostForm';
 
 import { Grid } from 'semantic-ui-react';
 
@@ -30,11 +31,11 @@ const Home = () => {
                 <h1>SafeT Directory</h1>
             </Grid.Row>
 
-            {/* {loggedIn && (
+            {loggedIn && (
             <Grid.Column>
-                // post form goes here
+                <PostForm />
             </Grid.Column>
-            )} */}
+            )}
 
             <Grid.Row>
             {posts &&

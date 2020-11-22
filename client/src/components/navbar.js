@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
-import { useQuery } from '@apollo/react-hooks';
+//import { useQuery } from '@apollo/react-hooks';
 
 import Auth from '../utils/auth';
 // need to write this query
-//import { QUERY_ME } from '../utils/queries'
+//import { QUERY_SELF } from '../utils/queries'
 
 const Navbar = () => {
 
@@ -14,6 +14,9 @@ const Navbar = () => {
         event.preventDefault();
         Auth.logout();
     }
+
+
+
 
 
     // need const loggedIn here
