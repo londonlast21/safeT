@@ -14,7 +14,7 @@ if (!posts) {
         <Card fluid>
               <Card.Content>
                 <Card.Header as={Link} to={`/post/${posts._id}`}>{posts.name}</Card.Header>
-                <Card.Meta>{moment(createdAt).fromNow(true)}</Card.Meta>
+                <Card.Meta>added by {posts.username}</Card.Meta>
                 <Card.Description>
                     <ul>
                         <li>{posts.type}</li>
@@ -27,7 +27,7 @@ if (!posts) {
             <Card.Content extra>
             <p>Reviews:{comments}</p>
 
-            <Button>
+            <Button as={Link} to={`/post/${posts._id}`}>
                 Leave Review
             </Button>
             
