@@ -32,5 +32,35 @@ mutation addUser(
     }
 }
 
-`
+`;
+
+export const CREATE_POST_MUTATION =gql`
+mutation addPost(
+    $name: String!,
+    $location: String!,
+    $type: String!
+){
+addPost(name: $name,
+    location: $location,
+    type: $type
+){
+    _id name location type username createdAt 
+    comments{
+        _id createdAt username commentBody
+    }
+    
+}
+}
+` 
 ;
+export const SUBMIT_COMMENT_MUTATION = gql`
+mutation($postId: ID!, $commentBody: String!){
+    addComment(postId: $postId, body: $body){
+        id
+        comments{
+            id body createdAt username
+        }
+       
+}
+}
+`;

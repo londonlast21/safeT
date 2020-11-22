@@ -7,6 +7,8 @@ import { useQuery } from '@apollo/react-hooks';
 import { QUERY_POSTS } from '../utils/queries';
 
 import Auth from '../utils/auth';
+import PostForm from '../components/PostForm';
+
 
 const Home = () => {
 
@@ -30,11 +32,11 @@ const Home = () => {
                 <h1>SafeT Directory</h1>
             </Grid.Row>
 
-            {/* {loggedIn && (
+            {loggedIn && (
             <Grid.Column>
-                // post form goes here
+                <PostForm />
             </Grid.Column>
-            )} */}
+            )}
 
             <Grid.Row>
             {posts &&

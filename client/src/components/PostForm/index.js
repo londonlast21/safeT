@@ -1,7 +1,48 @@
 import React, { useState } from 'react';
+import { useForm } from '../../utils/hooks';
 import { Form, Button } from 'semantic-ui-react';
 
-const PostForm = () => {
+import { useMutation } from '@apollo/react-hooks';
+import { QUERY_POSTS } from '../../utils/queries';
+import { CREATE_POST_MUTATION, CREATE_COMMENT_MUTATION } from '../../utils/mutations';
+
+function PostForm(){
+
+
+    // define post values
+    const { values, onChange, onSubmit } = useForm(addPostCallback, {
+        name: '',
+        location: '',
+        type: ''
+    });
+
+    console.log('hit post front');
+
+    const [addPost, { error }] = useMutation(CREATE_POST_MUTATION, {
+        update(cache, { data: { addPost } } ) {
+            try {
+                const { posts } = cache.readQuery({ query: QUERY_POSTS });
+                cache.writeQuery({
+                    query: QUERY_POSTS,
+                    data: { posts: [addPost, ...posts] }
+                });
+
+            } catch (e) {
+                console.error(e);
+            }
+        }
+    })
+
+
+    // define post callback
+    function addPostCallback(){
+
+        console.log('hit cllbk success post');
+        addPost();
+        window.location.reload();
+    }
+
+
   return (
     <>
     <Form onSubmit={onSubmit}>
