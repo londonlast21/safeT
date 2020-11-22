@@ -28,6 +28,9 @@ const Navbar = () => {
     const [activeItem, setActiveItem] = useState(path);
   
     const handleItemClick = (e, { name }) => setActiveItem(name);
+
+    console.log(Auth);
+  
   
     const navBar = loggedIn ? (
   
@@ -36,7 +39,7 @@ const Navbar = () => {
       // menu from user who is logged in
       <Menu pointing size="huge" color="grey">
         <Menu.Item
-          name={loggedIn.username}
+          name='Home'
           active
           as={Link}
           to="/"
