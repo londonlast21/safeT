@@ -1,30 +1,47 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'semantic-ui-react';
+import { useMutation } from '@apollo/react-hooks';
+import { LOGIN_USER } from '../utils/mutations';
 
 
-const Login = (props) => {
-  const [formState, setFormState] = useState({ email: '', password: '' });
+import Auth from '../utils/auth';
 
-  // update state based on form input changes
-  const handleChange = (event) => {
+const Login = () => {
+  const [formState, setFormState] = useState({ username: '', password: '' });
+  const [login, { error }] = useMutation(LOGIN_USER);
+
+
+  const handleChange = event => {
     const { name, value } = event.target;
+
 
     setFormState({
       ...formState,
-      [name]: value,
+      [name]: value
     });
   };
+  
 
-  // submit form
-  const handleFormSubmit = async (event) => {
+  const handleFormSubmit = async event => {
     event.preventDefault();
+    console.log('hit form submit');
+    try {
+      const { data } = await login({
+        variables: { ...formState }
+      });
 
-    // clear form values
+      Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
+    }
+    
     setFormState({
       email: '',
-      password: '',
+      password: ''
     });
   };
+
+
 
   return (
     <div className="form-container">
@@ -33,9 +50,9 @@ const Login = (props) => {
                   <Form.Input
                   label="Email"
                   placeholder="Email.."
-                  name="username"
-                  type="text"
-                  value={formState.username}
+                  name="email"
+                  type="email"
+                  value={formState.email}
                 // error={errors.username ? true : false}
                   onChange={handleChange}
                   />
@@ -53,10 +70,9 @@ const Login = (props) => {
                       Login
                   </Button>
           </Form>
-            {/* {error && <div>Login failed</div>} */}
+            {error && <div>Login failed</div>}
       </div>
         
   );
 };
-
 export default Login;

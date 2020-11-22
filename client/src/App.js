@@ -14,7 +14,7 @@ import 'semantic-ui-css/semantic.min.css';
 import Navbar from './components/navbar';
 
 // import Components
-import AppFooter from './components/Footer/index';
+
 
 // import Pages
 import Home from './pages/Home';
@@ -26,6 +26,15 @@ import Signup from './pages/Signup';
 
 
 const client = new ApolloClient({
+  request: operation => {
+    const token = localStorage.getItem('id_token');
+
+    operation.setContext({
+      headers: {
+        authorization: token ? `Bearer ${token}` : ''
+      }
+    });
+  },
   uri: '/graphql',
   onError: (e) => { console.log(e) }
 });

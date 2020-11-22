@@ -103,7 +103,7 @@ const Signup = () => {
                         Sign Up
                     </Button>
             </Form>
-                {/* {error && <div>Account creation failed</div>}  */}
+                {error && <div>Account creation failed</div>} 
             
         </div>
 
