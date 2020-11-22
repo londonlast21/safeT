@@ -5,8 +5,10 @@ import moment from 'moment';
 import { useQuery } from '@apollo/react-hooks';
 import { QUERY_SINGLE_POST } from '../utils/queries';
 import CommentList from '../components/CommentList';
+import CommentForm from '../components/CommentForm';
+import Auth from '../utils/auth';
 
-import { Card, Grid, Form, Button } from 'semantic-ui-react';
+import { Card, Grid } from 'semantic-ui-react';
 
 
 const SinglePost = props => {
@@ -44,6 +46,7 @@ const SinglePost = props => {
 
                     </Grid.Column>
                 </Grid.Row>
+                {Auth.loggedIn() && <CommentForm postId={post._id} />}
             </Grid>
 
         )

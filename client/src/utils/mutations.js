@@ -53,12 +53,12 @@ addPost(name: $name,
 }
 ` 
 ;
-export const SUBMIT_COMMENT_MUTATION = gql`
+export const CREATE_COMMENT_MUTATION = gql`
 mutation($postId: ID!, $commentBody: String!){
     addComment(postId: $postId, body: $body){
         id
         comments{
-            id body createdAt username
+            id commentBody createdAt username
         }
        
 }
