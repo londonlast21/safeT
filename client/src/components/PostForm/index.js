@@ -19,19 +19,25 @@ function PostForm(){
     console.log('hit post front');
 
     const [addPost, { error }] = useMutation(CREATE_POST_MUTATION, {
-        update(cache, { data: { addPost } } ) {
-            try {
-                const { posts } = cache.readQuery({ query: QUERY_POSTS });
-                cache.writeQuery({
-                    query: QUERY_POSTS,
-                    data: { posts: [addPost, ...posts] }
-                });
 
-            } catch (e) {
-                console.error(e);
-            }
+        variables: values,
+    
+
+        update(proxy, result) {
+            console.log('hit update');
+          const data = proxy.readQuery({
+            query: QUERY_POSTS
+          });
+          data.getPosts = [result.data.addPost, ...data.getPosts];
+          proxy.writeQuery({ query: QUERY_POSTS, data });
+          values.name = '';
+          values.location = '';
+          values.type = '';
+          
         }
-    })
+    });
+
+
 
 
     // define post callback
@@ -58,18 +64,18 @@ function PostForm(){
                 />
 
             <Form.Input
-                placeholder="Provider location"
-                name="location"
-                onChange={onChange}
-                value={values.location}
-                error={error ? true : false}
-                />
-
-            <Form.Input
                 placeholder="Type of professional/specialty"
                 name="type"
                 onChange={onChange}
                 value={values.type}
+                error={error ? true : false}
+                />
+
+            <Form.Input
+                placeholder="Provider location"
+                name="location"
+                onChange={onChange}
+                value={values.location}
                 error={error ? true : false}
                 />
             
