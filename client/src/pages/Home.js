@@ -27,7 +27,8 @@ const Home = () => {
 
 
     return (
-        <Grid columns={4}>
+    
+        <Grid stackable columns={4}>
             <Grid.Row className="page-title">
                 <h1>SafeT Directory</h1>
             </Grid.Row>
