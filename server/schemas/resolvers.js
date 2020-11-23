@@ -129,7 +129,7 @@ const resolvers = {
 
           // delete post
           async deletePost(_, { postId }, context){
-            const user = Auth(context);
+            const user = Auth;
 
             try{
                 const post = await Post.findById(postId);
