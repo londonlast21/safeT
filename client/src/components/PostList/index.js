@@ -12,11 +12,11 @@ if (!posts) {
     //if there are posts, generate card 
     return (
         <Card fluid>
-              <Card.Content>
+              <Card.Content className="card-content">
                 <Card.Header as={Link} to={`/post/${posts._id}`}>{posts.name}</Card.Header>
                 <Card.Meta>added by {posts.username}</Card.Meta>
                 <Card.Description>
-                    <ul>
+                    <ul className="card-data">
                         <li>{posts.type}</li>
                         <li>{posts.location}</li>
                         
@@ -24,7 +24,7 @@ if (!posts) {
                     </ul>
                 </Card.Description>
             </Card.Content>
-            <Card.Content extra>
+            <Card.Content extra className="comment-form">
             <h4>Reviews:</h4>
                <p> {comments}</p>
 

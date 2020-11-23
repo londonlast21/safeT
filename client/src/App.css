@@ -19,7 +19,16 @@
 }
 
 .comments-text {
-    color: blue
+    color: blue;
 
+}
+
+.card-content {
+    text-align: center;
+    
+}
+
+.card-data {
+    text-align: left
 }
 
