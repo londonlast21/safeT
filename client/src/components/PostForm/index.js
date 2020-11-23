@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm } from '../../utils/hooks';
 import { Form, Button } from 'semantic-ui-react';
 
 import { useMutation } from '@apollo/react-hooks';
 import { QUERY_POSTS } from '../../utils/queries';
-import { CREATE_POST_MUTATION, CREATE_COMMENT_MUTATION } from '../../utils/mutations';
+import { CREATE_POST_MUTATION } from '../../utils/mutations';
 
 function PostForm(){
 
@@ -25,7 +25,7 @@ function PostForm(){
 
         update(proxy, result) {
             console.log('hit update');
-          const data = proxy.readQuery({
+            const data = proxy.readQuery({
             query: QUERY_POSTS
           });
           data.getPosts = [result.data.addPost, ...data.getPosts];

@@ -111,7 +111,7 @@ const resolvers = {
 
         // add a comment to a post
         addComment: async (parent, { postId, commentBody }, context) => {
-            console.log('hit backen addComment resolver');
+            console.log('hit backend addComment resolver');
             if (context.user) {
               const updatedPost = await Post.findOneAndUpdate(
                 { _id: postId },

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Form, Button } from 'semantic-ui-react';
+import { Card, Button, Form } from 'semantic-ui-react';
 
 import { useMutation } from '@apollo/react-hooks';
 import { CREATE_COMMENT_MUTATION } from '../../utils/mutations';
@@ -10,19 +10,21 @@ const CommentForm = ({ postId }) => {
 
     const [commentBody, setCommentBody] = useState('');
     //const [characterCount, setCharacterCount] = useState(0);
-    const [addComment, { error }] = useMutation(CREATE_COMMENT_MUTATION);
+    const [addComment, { error }] = useMutation(CREATE_COMMENT_MUTATION)
 
     const handleChange = event => {
-        setCommentBody(event.target.length);
+        setCommentBody(event.target.value);
+        console.log(commentBody);
          
     };
 
     const handleFormSubmit = async event => {
         event.preventDefault();
+        
 
         try {
-            await addComment({
-                variables: { commentBody, postId }
+            addComment({
+                variables: { postId, commentBody }
             });
 
             setCommentBody('');
@@ -34,11 +36,12 @@ const CommentForm = ({ postId }) => {
 
     
   return (
+      
      
         <Card fluid>
             <Card.Content>
             <p>Add a Review</p>
-            <form>
+            <Form onSubmit={handleFormSubmit}>
                 <div className="ui action input fluid">
                 <input
                             placeholder="Add review text here..."
@@ -47,16 +50,19 @@ const CommentForm = ({ postId }) => {
                             onChange={handleChange}
                             />
 
-                        <Button className="btn col-12 col-md-3" type="submit">
+                        <Button type="submit" 
+                        className="ui button teal">
                         Submit
                         </Button>
 
 
                     </div>
-                </form>
+                </Form>
+                {error && <div>Error; try again.....</div>}
             </Card.Content>
        
         </Card>
+    
 
   );
 };
