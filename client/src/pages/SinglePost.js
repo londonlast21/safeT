@@ -41,7 +41,7 @@ const SinglePost = props => {
                             </Card.Description>
                             
                         </Card.Content>
-                        <hr/>
+                        <br/>
                         </Card>
                         <CommentList comments ={post.comments} />
 

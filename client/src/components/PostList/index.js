@@ -25,7 +25,8 @@ if (!posts) {
                 </Card.Description>
             </Card.Content>
             <Card.Content extra>
-            <p>Reviews:{comments}</p>
+            <h4>Reviews:</h4>
+               <p> {comments}</p>
 
             <Button as={Link} to={`/post/${posts._id}`}>
                 Leave Review

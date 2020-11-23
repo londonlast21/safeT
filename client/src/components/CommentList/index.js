@@ -7,16 +7,18 @@ const CommentList = ({ comments }) => {
         
         <div className="card mb-3">
             <div className="card-header">
-                <span className="text-light">Reviews</span>
+                <span className="review-title">Reviews</span>
             </div>
+            <br/>
             <div className="card-body">
                 {comments &&
                 comments.map(comment => (
                     <p className="pill mb-3" key={comment._id}>
-                    {comment.commentBody} {'// '}
-                    <Link to={`/profile/${comment.username}`} style={{ fontWeight: 700 }}>
-                        {comment.username} on {comment.createdAt}
-                    </Link>
+                        <p className="comments-text">
+                        Review by {comment.username} on {comment.createdAt}
+                        </p>
+                        {comment.commentBody}
+                        
                     </p>
                 ))}
             </div>
