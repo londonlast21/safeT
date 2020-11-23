@@ -1,7 +1,9 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Post } = require('../models');
 const { post } = require('../models/Comment');
-const { signToken } = require('../utils/auth');
+const { signToken, Auth } = require('../utils/auth');
+
+
 
 const resolvers = {
     Query: {
@@ -123,7 +125,46 @@ const resolvers = {
             }
           
             throw new AuthenticationError('You need to be logged in!');
-          }
+          },
+
+          // delete post
+          async deletePost(_, { postId }, context){
+            const user = Auth(context);
+
+            try{
+                const post = await Post.findById(postId);
+                if(user.username === post.username){
+                    await post.delete();
+                    return 'Post deleted successfully';
+                } else {
+                    throw new AuthenticationError('Action not allowed');
+                }
+            } catch (err) {
+                throw new Error(err);
+            }
+          },
+
+          // delete comment
+          async deleteComment(_, { postId, commentId}, context){
+            const { username } = Auth(context);
+
+            const post = await Post.findById(postId);
+            
+            if(post){
+               const commentIndex = post.comments.findIndex(c => c.id === commentId);
+
+               if(post.comments[commentIndex].username === username){
+                   post.comments.splice(commentIndex, 1);
+                   await post.save();
+                   return post;
+               } else {
+                   throw error('Action not allowed')
+               }
+            } else {
+                throw error('Post not found')
+            }
+          },
+
     }
 };
   
