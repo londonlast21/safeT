@@ -39,6 +39,7 @@ const SinglePost = props => {
                                     <li>{post.location}</li>
                                 </ul>
                             </Card.Description>
+                            
                         </Card.Content>
                         <hr/>
                         </Card>
