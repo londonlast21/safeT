@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // css here
 import 'semantic-ui-css/semantic.min.css';
+import './App.css';
 
 // import navbar here
 import Navbar from './components/navbar';

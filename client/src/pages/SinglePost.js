@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import moment from 'moment';
+//import moment from 'moment';
 
 import { useQuery } from '@apollo/react-hooks';
 import { QUERY_SINGLE_POST } from '../utils/queries';
