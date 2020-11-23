@@ -32,13 +32,14 @@ const SinglePost = props => {
                     <Card fluid>
                         <Card.Content>
                             <Card.Header>{post.name}</Card.Header>
-                            <Card.Meta>{moment(post.createdAt).fromNow(true)}</Card.Meta>
+                            <Card.Meta>added by {post.username}</Card.Meta>
                             <Card.Description>
                                 <ul>
                                     <li>{post.type}</li>
                                     <li>{post.location}</li>
                                 </ul>
                             </Card.Description>
+                            
                         </Card.Content>
                         <hr/>
                         </Card>

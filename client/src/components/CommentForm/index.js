@@ -51,7 +51,7 @@ const CommentForm = ({ postId }) => {
                             />
 
                         <Button type="submit" 
-                        className="ui button teal">
+                        className="ui button instagram">
                         Submit
                         </Button>
 
