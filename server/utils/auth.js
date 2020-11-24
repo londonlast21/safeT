@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-
+const secret = 'wigoletta has five new hats';
 const expiration = '1h';
 
 module.exports = {
@@ -22,7 +22,7 @@ module.exports = {
     }
 
     try {
-      const { data } = jwt.verify(token, process.env.secret, { maxAge: expiration });
+      const { data } = jwt.verify(token, secret, { maxAge: expiration });
       req.user = data;
     } catch {
       console.log('Invalid token from line 28');
