@@ -29,7 +29,13 @@
 }
 
 .card-data {
-    text-align: left
+    text-align: left;
 }
 
+.leave-review-btn {
+    text-align: center;
+}
 
+.comment-form {
+    text-align: center;
+}

@@ -66,20 +66,20 @@ mutation addComment($postId: ID!, $commentBody: String!){
 }
 `;
 
-const DELETE_POST_MUTATION = gql`
-    mutation deletePost($postId: ID!){
-        deletePost(postId: $postId)
-    }
-`;
+// const DELETE_POST_MUTATION = gql`
+//     mutation deletePost($postId: ID!){
+//         deletePost(postId: $postId)
+//     }
+// `;
 
-const DELETE_COMMENT_MUTATION = gql`
-    mutation deleteComment($postId: ID!, $commentId: ID!){
-        deleteComment(postId: $postId, commentId: $commentId){
-            id
-            comments{
-                id username createdAt commentBody
-            }
+// const DELETE_COMMENT_MUTATION = gql`
+//     mutation deleteComment($postId: ID!, $commentId: ID!){
+//         deleteComment(postId: $postId, commentId: $commentId){
+//             id
+//             comments{
+//                 id username createdAt commentBody
+//             }
             
-        }
-    }
-`;
+//         }
+//     }
+// `;
