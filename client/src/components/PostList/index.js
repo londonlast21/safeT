@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Card } from 'semantic-ui-react';
 //import moment from 'moment';
 import { Link } from 'react-router-dom';
+import DeleteButton from '../DeleteButton';
 
 
 const PostCard = ({ posts, createdAt, comments}) => {
@@ -31,6 +32,8 @@ if (!posts) {
             <Button as={Link} to={`/post/${posts._id}`}>
                 Leave Review
             </Button>
+
+            <DeleteButton />
             
             </Card.Content>
         </Card>

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Button, Icon } from 'semantic-ui-react';
 
 const DeleteButton = () => {
     return (
@@ -7,7 +7,7 @@ const DeleteButton = () => {
                 as="div"
                 color="red"
                 floated="right"
-                onClick={() => setConfirmOpen(true)}
+                // onClick={() => setConfirmOpen(true)}
             >
                 <Icon name="trash" style={{ margin: 0 }} />
         </Button>

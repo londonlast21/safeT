@@ -3,7 +3,7 @@ import { Card, Button, Form } from 'semantic-ui-react';
 
 import { useMutation } from '@apollo/react-hooks';
 import { CREATE_COMMENT_MUTATION } from '../../utils/mutations';
-
+import DeleteButton from '../../components/DeleteButton';
 
 
 const CommentForm = ({ postId }) => {
@@ -55,6 +55,7 @@ const CommentForm = ({ postId }) => {
                         Submit
                         </Button>
 
+                       
 
                     </div>
                 </Form>

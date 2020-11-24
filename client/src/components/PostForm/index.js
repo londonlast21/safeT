@@ -6,6 +6,8 @@ import { useMutation } from '@apollo/react-hooks';
 import { QUERY_POSTS } from '../../utils/queries';
 import { CREATE_POST_MUTATION } from '../../utils/mutations';
 
+import DeleteButton from '../DeleteButton';
+
 function PostForm(){
 
 

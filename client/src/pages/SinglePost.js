@@ -8,7 +8,9 @@ import CommentList from '../components/CommentList';
 import CommentForm from '../components/CommentForm';
 import Auth from '../utils/auth';
 
-import { Card, Grid } from 'semantic-ui-react';
+import DeleteButton from '../components/DeleteButton';
+
+import { Card, Grid, Button } from 'semantic-ui-react';
 
 
 const SinglePost = props => {
@@ -31,6 +33,10 @@ const SinglePost = props => {
 
                     <Card fluid>
                         <Card.Content>
+
+                        
+                               
+
                             <Card.Header>{post.name}</Card.Header>
                             <Card.Meta>added by {post.username}</Card.Meta>
                             <Card.Description>
@@ -39,7 +45,9 @@ const SinglePost = props => {
                                     <li>{post.location}</li>
                                 </ul>
                             </Card.Description>
+
                             
+                            <DeleteButton />
                         </Card.Content>
                         <br/>
                         </Card>
