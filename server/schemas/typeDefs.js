@@ -55,6 +55,8 @@ type Mutation {
     addPost(name: String!, type: String!, location: String!): Post
     addComment(postId: ID!, commentBody: String!): Post
     
+    deletePost(postId: ID!): Post
+    deleteComment(postId: ID!, commentId: ID!): Post
 }
 `;
 

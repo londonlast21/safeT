@@ -123,7 +123,25 @@ const resolvers = {
             }
           
             throw new AuthenticationError('You need to be logged in!');
+        },
+
+        // delete a post
+        deletePost: async (parent, { postId }, context) => {
+          if (User.username === Post.username) {
+            const updatedPost = await Post.findOneAndDelete(
+              { _id: context.postId },
+              { $pull: { posts: {postId} } },
+              { new: true}
+            );
+
+            return updatedPost;
           }
+
+          throw new AuthenticationError('This post does not exist');
+        }
+
+        // delete a comment
+
     }
 };
   
