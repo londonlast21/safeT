@@ -27,17 +27,19 @@ const SinglePost = props => {
         return (
             <Grid>
                 <Grid.Row>
-                    <Grid.Column>
+                    <Grid.Column >
 
-                    <Card fluid>
-                        <Card.Content>
+                    <Card fluid >
+                        <Card.Content className= "card-content">
                             <Card.Header>{post.name}</Card.Header>
                             <Card.Meta>added by {post.username}</Card.Meta>
                             <Card.Description>
-                                <ul>
-                                    <li>{post.type}</li>
-                                    <li>{post.location}</li>
-                                </ul>
+                                    <br />
+                                
+                                    <p>{post.type}</p>
+                                    <br />
+                                    <p>{post.location}</p>
+                            
                             </Card.Description>
                             
                         </Card.Content>

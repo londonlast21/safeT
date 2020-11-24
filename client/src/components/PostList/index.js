@@ -11,7 +11,7 @@ if (!posts) {
 
     //if there are posts, generate card 
     return (
-        <Card fluid>
+        <Card fluid className="post-card">
               <Card.Content className="card-content">
                 <Card.Header as={Link} to={`/post/${posts._id}`}>{posts.name}</Card.Header>
                 <Card.Meta>added by {posts.username}</Card.Meta>
