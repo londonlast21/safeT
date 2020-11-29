@@ -7,14 +7,18 @@ const DATA_CACHE_NAME = "data-cache-" + VERSION;
 const FILES_TO_CACHE = [
     '/',
     '/index.html',
-    '/icons',
+    '/icons/logo192-192x192',
+    '/icons/logo512-512x512',
+    '/favicon.ico',
 
     '/manifest.json',
-    '/favicon.ico',
+    
 
     '/src/App.js',
     '/src/App.css',
     '/src/index.js',
+    '/src/index.css',
+    '/src/logo.svg',
 
 
     '/src/components/CommentForm/index.js',
@@ -34,6 +38,8 @@ const FILES_TO_CACHE = [
     '/src/utils/hooks.js',
     '/src/utils/mutations.js',
     '/src/utils/queries.js'
+
+
 ];
 
 // Install a service worker

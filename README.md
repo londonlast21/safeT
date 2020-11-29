@@ -49,4 +49,4 @@ Upons submission, the page will refresh; if you did not include a name, the post
 ## Links
 - [Github Repository](https://github.com/londonlast21/safeT)
 
-- [Deployed App]
+- [Deployed App](https://protected-bayou-57861.herokuapp.com/)
