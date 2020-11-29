@@ -1,6 +1,7 @@
 {
   "short_name": "safet-app",
   "name": "SafeT Healthcare Directory",
+  "description": "An app to keep track of trans/GNC -safe healthcare providers",
   "icons": [
 
     {
