@@ -3,7 +3,7 @@ const VERSION = 'v1';
 const CACHE_NAME = APP_PREFIX + VERSION;
 const DATA_CACHE_NAME = "data-cache-" + VERSION;
 
-require('')
+
 const FILES_TO_CACHE = [
     '/',
     '/index.html',
@@ -11,6 +11,10 @@ const FILES_TO_CACHE = [
 
     '/manifest.json',
     '/favicon.ico',
+
+    '/src/App.js',
+    '/src/App.css',
+    '/src/index.js',
 
 
     '/src/components/CommentForm/index.js',

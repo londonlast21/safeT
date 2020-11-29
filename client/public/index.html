@@ -10,7 +10,8 @@
       content="Web site created using create-react-app"
     />
 
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="manifest" href="manifest.json" />
+
 
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;800&family=Karla:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
       <title>SafeT Health Directory</title>
@@ -22,6 +23,22 @@
     <div id="root"></div>
  
   </body>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('sw.js').then(function(registration) {
+          console.log('Worker registration successful', registration.scope);
+        }, function(err) {
+          console.log('Worker registration failed', err);
+        }).catch(function(err) {
+          console.log(err);
+        });
+      });
+    } else {
+      console.log('Service Worker is not supported by browser.');
+    }
+  </script>
 
 
 </html>
